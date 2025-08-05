@@ -1,0 +1,155 @@
+/*
+ * Core stylesheet for the Live Transformed countdown PWA.
+ *
+ * The design strives for a refined, mid‑century aesthetic with a dark
+ * backdrop, high‑contrast headings, muted quotes, and subtle animation
+ * pulses on each countdown unit as it ticks down. Responsive units
+ * (vw/vh) ensure the layout scales gracefully across displays ranging
+ * from phones to large monitors.
+ */
+
+/* Universal reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background-color: #0d0d1a; /* deep navy/black */
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+/* Container wraps all visible content and centers it */
+.container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Giant, semi‑transparent background message. White‑space and
+   line-height adjustments ensure it wraps nicely on multiple lines. */
+.background-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12vw;
+  line-height: 1.1em;
+  color: rgba(255, 255, 255, 0.035);
+  white-space: pre-line;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Headings */
+h1 {
+  font-size: 5vw;
+  font-weight: 600;
+  margin: 0.3em 0;
+  z-index: 1;
+}
+
+h2 {
+  font-size: 3vw;
+  font-weight: 500;
+  margin-top: 0.5em;
+  z-index: 1;
+}
+
+/* Days left counter */
+.count.large {
+  font-size: 10vw;
+  font-weight: 700;
+  margin: 0.1em 0;
+  z-index: 1;
+}
+
+/* HH:MM:SS countdown */
+.subtext {
+  font-size: 6vw;
+  font-family: monospace;
+  z-index: 1;
+}
+
+/* Quote styling */
+.quote {
+  font-size: 3vw;
+  font-style: italic;
+  font-weight: 600;
+  color: #888;
+  max-width: 80vw;
+  margin: 0.5em auto 0;
+  z-index: 1;
+  transition: color 0.5s ease;
+}
+
+.quote.pulse {
+  color: #aaa;
+}
+
+/* Quote author */
+.quote-author {
+  font-size: 2vw;
+  color: #777;
+  margin-top: 0.2em;
+  z-index: 1;
+}
+
+/* Percentage of life completed */
+.percentage {
+  color: #57d157; /* dull green, reminiscent of a battery indicator */
+  font-family: monospace;
+  font-size: 2.5vw;
+  margin-top: 1em;
+  z-index: 1;
+}
+
+/* Footer layout */
+.footer {
+  position: absolute;
+  bottom: 3vh;
+  left: 3vw;
+  right: 3vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.5vw;
+  color: #888;
+  font-family: monospace;
+  z-index: 1;
+}
+
+.family {
+  text-align: left;
+  line-height: 1.4em;
+}
+
+.family-line {
+  margin: 0.2em 0;
+}
+
+.footer-right {
+  text-align: right;
+  white-space: pre-line;
+  line-height: 1.2em;
+}
+
+/* Pulse animation used when seconds/minutes/hours/days change */
+.pulse {
+  animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.85; }
+  100% { transform: scale(1); opacity: 1; }
+}

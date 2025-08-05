@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Live Transformed Countdown</title>
+  <!-- Use a dark theme color so the address bar on mobile matches the app -->
+  <meta name="theme-color" content="#0d0d1a" />
+  <!-- Reference the PWA manifest to enable installability -->
+  <link rel="manifest" href="manifest.json" />
+  <!-- External stylesheet for the visual design -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Large semi‑transparent background message. The line break is encoded
+         explicitly with <br> so it wraps properly on all devices. -->
+    <div class="background-text">
+      Live<br />Transformed
+    </div>
+
+    <!-- Primary heading -->
+    <h1>Days Left to Live</h1>
+    <!-- Days left counter -->
+    <div id="daysLeft" class="count large">0</div>
+
+    <!-- Secondary heading for the daily countdown -->
+    <h2>Today Remaining</h2>
+    <!-- HH:MM:SS countdown for the remainder of the current day -->
+    <div id="todayCountdown" class="subtext">
+      <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>
+
+    <!-- Motivational quote and author attribution -->
+    <div id="quote" class="quote"></div>
+    <div id="author" class="quote-author"></div>
+
+    <!-- Percentage of life completed -->
+    <div id="percent" class="percentage"></div>
+
+    <!-- Footer contains the family countdowns on the left and the clock and
+         motivational footer on the right -->
+    <div class="footer">
+      <!-- Family countdowns. These elements will be updated with days left
+           for each family member at runtime. -->
+      <div class="family">
+        <div id="tiffanie" class="family-line"></div>
+        <div id="jocelynn" class="family-line"></div>
+        <div id="emberly" class="family-line"></div>
+        <div id="rylee" class="family-line"></div>
+      </div>
+      <!-- Local time and inspirational footer -->
+      <div class="footer-right">
+        <div id="clock"></div>
+        Live like<br />It matters
+      </div>
+    </div>
+  </div>
+  <!-- Application logic. Quotes, countdown updates and TTS live here. -->
+  <script src="script.js"></script>
+  <!-- Register the service worker if supported -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
