@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0b0f1a;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  height: 100vh;
+  overflow: hidden;
+}
+.background-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background-image: url('background.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 5vh 2vw;
+}
+.section-title {
+  font-size: 2.5em;
+}
+.days-left {
+  font-size: 5em;
+}
+.sub-section-title {
+  font-size: 1.5em;
+}
+.clock {
+  font-size: 3em;
+}
+.quote {
+  font-style: italic;
+  color: #aaa;
+  font-size: 1.5em;
+}
+.quote-author {
+  font-size: 1em;
+  color: #888;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 2vh;
+  width: 96%;
+  padding: 0 2vw;
+  font-size: 0.9em;
+}
+.percent-complete {
+  color: #7FFF7F;
+}
+.family-countdowns {
+  color: #888;
+}
+.bottom-right {
+  color: #888;
+  text-align: right;
+}
